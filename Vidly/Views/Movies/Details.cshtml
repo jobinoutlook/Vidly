@@ -1,0 +1,19 @@
+﻿@model Vidly.Models.Movie
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+<br />
+<h2>@Model.Name</h2>
+<br />
+
+
+<ul>
+    <li><h4>Genre: @Model.Genre.Name </h4></li>
+    @if (Model.ReleaseDate != null)
+    {
+        <li><h4>ReleaseDate: @Model.ReleaseDate.Date.ToString("dd/MM/yyyy") </h4></li>
+    }
+</ul>
+
