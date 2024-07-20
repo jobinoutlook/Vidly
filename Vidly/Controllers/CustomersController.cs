@@ -64,5 +64,72 @@ namespace Vidly.Controllers
 
             return View();
         }
+
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.Find(id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+
+            NewCustomerViewModel newCustomerViewModel = new NewCustomerViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+
+            return View(newCustomerViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Customer customer)
+        {
+
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                var customerInDb = _context.Customers.Single(s => s.Id == customer.Id);
+
+                customerInDb.IsSubscribedToNewsletter=customer.IsSubscribedToNewsletter;
+                customerInDb.Name = customer.Name;
+                customerInDb.MembershipTypeId= customer.MembershipTypeId;
+                customer.BirthDate = customerInDb.BirthDate;
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", "Customers");
+            }
+
+
+            return View();
+
+        }
+
+
+        public ActionResult Delete(int id)
+        {
+            var viewModel = new NewCustomerViewModel
+            {
+                Customer = _context.Customers.Single(c => c.Id == id),
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var customer = _context.Customers.Find(id);
+            _context.Customers.Remove(customer);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
