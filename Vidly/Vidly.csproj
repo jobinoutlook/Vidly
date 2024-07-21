@@ -233,6 +233,10 @@
     <Compile Include="Migrations\202407191732437_PopulateMovie.Designer.cs">
       <DependentUpon>202407191732437_PopulateMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202407201644306_ModelMovieUpdate.cs" />
+    <Compile Include="Migrations\202407201644306_ModelMovieUpdate.Designer.cs">
+      <DependentUpon>202407201644306_ModelMovieUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -243,6 +247,7 @@
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\MovieViewModel.cs" />
     <Compile Include="ViewModels\NewCustomerViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
@@ -322,6 +327,9 @@
     <Content Include="Views\Customers\New.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Movies\New.cshtml" />
+    <Content Include="Views\Movies\Edit.cshtml" />
+    <Content Include="Views\Movies\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -371,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202407191732437_PopulateMovie.resx">
       <DependentUpon>202407191732437_PopulateMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407201644306_ModelMovieUpdate.resx">
+      <DependentUpon>202407201644306_ModelMovieUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
