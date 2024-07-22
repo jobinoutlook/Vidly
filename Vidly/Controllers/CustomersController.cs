@@ -99,7 +99,7 @@ namespace Vidly.Controllers
                 customerInDb.IsSubscribedToNewsletter=customer.IsSubscribedToNewsletter;
                 customerInDb.Name = customer.Name;
                 customerInDb.MembershipTypeId= customer.MembershipTypeId;
-                customer.BirthDate = customerInDb.BirthDate;
+                customerInDb.BirthDate = customer.BirthDate;
 
                 _context.SaveChanges();
 

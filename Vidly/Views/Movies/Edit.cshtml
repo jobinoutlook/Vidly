@@ -16,9 +16,9 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.ReleaseDate)
-        @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:d MMM yyyy }", new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:dd-MM-yyyy}", new { @class = "form-control datepicker" })
         @*<input type="date" id="ReleaseDate" name="ReleaseDate">*@
-
+        @*{0:d MMM yyyy}*@
     </div>
 
     <div class="form-group">
@@ -33,6 +33,11 @@
     </div>
 
     @Html.HiddenFor(m => m.Movie.Id)
+
+    <a type="button" class="btn btn-primary btn-sm" href="@Url.Action("Index")">
+        <span class="glyphicon glyphicon-list"></span>
+        <span >Back To List</span>
+    </a>
 
     <button type="submit" class="btn btn-sm btn-primary">Save</button>
 
