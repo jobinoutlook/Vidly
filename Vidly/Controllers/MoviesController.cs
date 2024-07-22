@@ -18,6 +18,12 @@ namespace Vidly.Controllers
                 _context = new ApplicationDbContext();
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
+
         public ActionResult Index()   
         {
            
@@ -34,7 +40,7 @@ namespace Vidly.Controllers
         }
 
 
-        public ActionResult New()
+        public ActionResult Create()
         {
             IEnumerable<Genre> genres = _context.Genres.ToList();
 

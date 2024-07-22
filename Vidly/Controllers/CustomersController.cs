@@ -42,10 +42,10 @@ namespace Vidly.Controllers
         }
 
 
-        public ActionResult New()
+        public ActionResult Create()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
-            var viewModel = new NewCustomerViewModel
+            var viewModel = new CustomerViewModel
             {
                 MembershipTypes = membershipTypes
             };
@@ -62,7 +62,12 @@ namespace Vidly.Controllers
                 return RedirectToAction("Index", "Customers");
             }
 
-            return View();
+            var viewModel = new CustomerViewModel
+            {
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+
+            return View(viewModel);
         }
 
 
@@ -74,13 +79,13 @@ namespace Vidly.Controllers
                 return HttpNotFound();
             }
 
-            NewCustomerViewModel newCustomerViewModel = new NewCustomerViewModel
+            CustomerViewModel customerViewModel = new CustomerViewModel
             {
                 Customer = customer,
                 MembershipTypes = _context.MembershipTypes.ToList()
             };
 
-            return View(newCustomerViewModel);
+            return View(customerViewModel);
         }
 
         [HttpPost]
@@ -106,15 +111,20 @@ namespace Vidly.Controllers
                 return RedirectToAction("Index", "Customers");
             }
 
+            CustomerViewModel customerViewModel = new CustomerViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
 
-            return View();
+            return View(customerViewModel);
 
         }
 
 
         public ActionResult Delete(int id)
         {
-            var viewModel = new NewCustomerViewModel
+            var viewModel = new CustomerViewModel
             {
                 Customer = _context.Customers.Single(c => c.Id == id),
                 MembershipTypes = _context.MembershipTypes.ToList()
@@ -131,5 +141,8 @@ namespace Vidly.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        
     }
 }
