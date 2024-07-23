@@ -177,6 +177,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\MinimumAgeCustomer.cs" />
     <Compile Include="Migrations\202407191232106_PopulateMembershipTypes.cs" />
     <Compile Include="Migrations\202407191232106_PopulateMembershipTypes.Designer.cs">
       <DependentUpon>202407191232106_PopulateMembershipTypes.cs</DependentUpon>
