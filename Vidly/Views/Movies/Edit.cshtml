@@ -17,7 +17,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.ReleaseDate)
-        @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:MM/dd/yyyy}", new { @class = "form-control datepicker" })
+        @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:MMM-dd-yyyy}", new { @class = "form-control datepicker" })
         @Html.ValidationMessageFor(model => model.Movie.ReleaseDate, "", new { @class = "text-danger" })
         @*<input type="date" id="ReleaseDate" name="ReleaseDate">*@
         @*{0:d MMM yyyy}*@

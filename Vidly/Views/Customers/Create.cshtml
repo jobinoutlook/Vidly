@@ -22,7 +22,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.BirthDate)
-        @Html.TextBoxFor(m => m.Customer.BirthDate, "{0:MM/dd/yyyy}", new { @class = "form-control datepicker" })
+        @Html.TextBoxFor(m => m.Customer.BirthDate, "{0:MMM-dd-yyyy}", new { @class = "form-control datepicker" })
         @Html.ValidationMessageFor(model => model.Customer.BirthDate, "", new { @class = "text-danger" })
     </div>
 
