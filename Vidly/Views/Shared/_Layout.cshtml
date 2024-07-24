@@ -21,11 +21,12 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+   
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
     <script>
         $('.datepicker').datepicker({
-            format: 'dd-mm-yyyy'
+            format: 'MM/dd/yyyy'
         });
     </script>
 </body>
