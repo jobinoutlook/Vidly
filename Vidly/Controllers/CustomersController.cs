@@ -8,6 +8,7 @@ using System.Data.Entity;
 using Vidly.ViewModels;
 namespace Vidly.Controllers
 {
+    [Authorize]
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
