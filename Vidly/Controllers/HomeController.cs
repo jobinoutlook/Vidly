@@ -25,6 +25,8 @@ namespace Vidly.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+
+            //test
         }
     }
 }
